@@ -1,5 +1,6 @@
 #include "frmmain.h"
 #include "ui_frmmain.h"
+#include <QFileDialog>
 
 FrmMain::FrmMain(QWidget *parent)
     : QMainWindow(parent)
@@ -17,17 +18,14 @@ void FrmMain::on_btn_save_clicked()
 {
     getUserInput();
     clearLineEdits();
-
-    // Serialization: Save the data into a file in the build folder of this project
-    if (person.saveToFile(fileName)) ui->tb_output->append("Data was saved into the file\n");
+    saveFileDialog();
 }
 
 
 void FrmMain::on_btn_open_clicked()
 {
     // Serialization: Load the data from the file
-    if (person.loadFromFile(fileName)) ui->tb_output->append("Data was loaded from the file\n");
-
+    openFileDialog();
     outputData();
 }
 
@@ -57,4 +55,41 @@ void FrmMain::outputData()
     ui->tb_output->append("Last Name: " + person.lastName);
     ui->tb_output->append("Age: " + QString::number(person.age));
     ui->tb_output->append("\n--------\n");
+}
+
+void FrmMain::saveFileDialog()
+{
+    // Prompt the user to select a file for saving (only txt files supported)
+    fileName = QFileDialog::getSaveFileName(nullptr, "Save File", "", "Text Files (*.txt)");
+
+    if (!fileName.isEmpty())
+    {
+            // Open the file for writing
+            QFile file(fileName);
+            // Serialization: Save the data into a file
+            if (person.saveToFile(fileName)) ui->tb_output->append("Data was saved into the file\n");
+            else ui->tb_output->append("Problem saving data into the file\n");
+    }
+    else
+    {
+        ui->tb_output->append("No file Selected");
+    }
+}
+
+void FrmMain::openFileDialog()
+{
+    // Open file dialog (only txt files supported)
+    fileName = QFileDialog::getOpenFileName(nullptr, "Open File", "", "Text Files (*.txt);");
+
+    // Check if a file was selected
+    if (!fileName.isEmpty())
+    {
+        QFileInfo fileInfo(fileName);
+        if (person.loadFromFile(fileName)) ui->tb_output->append("Data was loaded from file\n");
+        else ui->tb_output->append("Problem loading data from file\n");
+    }
+    else
+    {
+        ui->tb_output->append("No file Selected");
+    }
 }

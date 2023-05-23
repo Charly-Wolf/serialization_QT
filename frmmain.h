@@ -20,6 +20,8 @@ public:
     void getUserInput();
     void clearLineEdits();
     void outputData();
+    void saveFileDialog();
+    void openFileDialog();
 
     // Button Funtions
 private slots:
@@ -30,6 +32,6 @@ private slots:
 private:
     Ui::FrmMain *ui;
     Person person;
-    QString fileName = "person.txt";
+    QString fileName;
 };
 #endif // FRMMAIN_H
