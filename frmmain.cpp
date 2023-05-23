@@ -67,7 +67,8 @@ void FrmMain::saveFileDialog()
             // Serialization: Save the data into a file
             if (person.saveToFile(filePath))
             {
-                ui->tb_output->append("Data was saved into " + getFileName(filePath) + "\n");
+                ui->tb_output->append("Data was saved into " + getFileName(filePath));
+                ui->tb_output->append("\n--------\n");
                 clearLineEdits();
             }
 

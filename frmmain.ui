@@ -167,7 +167,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Clear Text</string>
+     <string>Clear Output</string>
     </property>
    </widget>
   </widget>
