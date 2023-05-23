@@ -16,12 +16,16 @@ public:
     FrmMain(QWidget *parent = nullptr);
     ~FrmMain();
 
+    // Custom Functions
+    void getUserInput();
+    void clearLineEdits();
+    void outputData();
+
+    // Button Funtions
 private slots:
     void on_btn_save_clicked();
-
     void on_btn_open_clicked();
-
-    void on_pushButton_clicked();
+    void on_btn_clear_clicked();
 
 private:
     Ui::FrmMain *ui;

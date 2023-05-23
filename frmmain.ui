@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>795</width>
-    <height>378</height>
+    <height>416</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -143,7 +143,7 @@
       <x>380</x>
       <y>30</y>
       <width>381</width>
-      <height>251</height>
+      <height>291</height>
      </rect>
     </property>
     <property name="font">
@@ -152,11 +152,11 @@
      </font>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="btn_clear">
     <property name="geometry">
      <rect>
-      <x>460</x>
-      <y>290</y>
+      <x>490</x>
+      <y>330</y>
       <width>141</width>
       <height>31</height>
      </rect>
@@ -170,22 +170,6 @@
      <string>Clear Text</string>
     </property>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>795</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuSerialization">
-    <property name="title">
-     <string>Serialization</string>
-    </property>
-   </widget>
-   <addaction name="menuSerialization"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

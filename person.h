@@ -6,13 +6,12 @@
 
 class Person
 {
-//    Q_OBJECT
-    public:
+    public: // TO DO: User Private attributes and public getters and setters!!
         QString firstName;
         QString lastName;
         int age;
 
-        Person(const QString& firstName = "FirstName", const QString& lastName = "LastName", int age = 0);
+        Person(const QString& firstName = "FirstName", const QString& lastName = "LastName", int age = 0); // Constructor
 
         bool saveToFile(const QString& fileName);
         bool loadFromFile(const QString& fileName);
