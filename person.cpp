@@ -1,7 +1,7 @@
 #include "person.h"
 #include <QFile>
 
-Person::Person(const QString& name, int age) : QObject(), name(name), age(age)
+Person::Person(const QString& firstName, const QString& lastName, int age)
 {
 }
 
@@ -34,10 +34,10 @@ bool Person::loadFromFile(const QString& fileName)
 
 void Person::readFromStream(QDataStream& stream)
 {
-    stream >> name >> age;
+    stream >> firstName >> lastName >> age;
 }
 
 void Person::writeToStream(QDataStream& stream)
 {
-    stream << name << age;
+    stream << firstName << lastName << age;
 }

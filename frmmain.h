@@ -16,6 +16,9 @@ public:
     FrmMain(QWidget *parent = nullptr);
     ~FrmMain();
 
+private slots:
+    void on_btn_debug_clicked();
+
 private:
     Ui::FrmMain *ui;
     Person person;

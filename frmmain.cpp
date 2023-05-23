@@ -7,59 +7,32 @@ FrmMain::FrmMain(QWidget *parent)
     , ui(new Ui::FrmMain)
 {
     ui->setupUi(this);
-
-    person.name = "Max Mustermann";
-    person.age = 30;
-
-    QString fileName = "person.dat";
-
-    //--------------------------------------------//
-
-    // Serialisierung: Speichern der Daten in einer Datei
-    if (person.saveToFile(fileName)) qDebug() << "Daten wurden in Datei gespeichert";
-
-    // Serialisierung: Laden der daten aus der Datei
-    if (person.loadFromFile(fileName)) qDebug() << "Daten wurden aus Datei geladen";
-
-    // Anzeige der geladenen Daten
-    qDebug() << "Name:" << person.name;
-    qDebug() << "Alter:" << person.age;
-
-    //--------------------------------------------//
-
-    // Ändern der Daten
-    person.name = "John Doe";
-    person.age = 25;
-
-    // Serialisierung: Speichern der geänderten Daten in einer Datei
-    if (person.saveToFile(fileName)) qDebug() << "Geänderte Daten wurden in Datei gespeichert";
-
-    // Serialisierung: Laden der geänderten daten aus der Datei
-    if (person.loadFromFile(fileName)) qDebug() << "Daten wurden aus Datei geladen";
-
-    // Anzeige der geänderten Daten
-    qDebug() << "Name:" << person.name;
-    qDebug() << "Alter:" << person.age;
-
-    //--------------------------------------------//
-
-    // Ändern der Daten
-    person.name = "Beispiel Person";
-    person.age = 25;
-
-    // Serialisierung: Speichern der geänderten Daten in einer Datei
-    if (person.saveToFile(fileName)) qDebug() << "Geänderte Daten wurden in Datei gespeichert";
-
-    // Serialisierung: Laden der geänderten daten aus der Datei
-    if (person.loadFromFile(fileName)) qDebug() << "Daten wurden aus Datei geladen";
-
-    // Anzeige der geänderten Daten
-    qDebug() << "Name:" << person.name;
-    qDebug() << "Alter:" << person.age;
 }
 
 FrmMain::~FrmMain()
 {
     delete ui;
+}
+
+
+void FrmMain::on_btn_debug_clicked()
+{
+    // TEST -> The data will be displayed on the console
+    QString fileName = "person.txt";
+
+    person.firstName = ui->le_firstName->text();
+    person.lastName = ui->le_lastName->text();
+    person.age = ui->sb_Age->text().toInt();
+
+    // Serialization: Save the data into a file in the build folder of this project
+    if (person.saveToFile(fileName)) qDebug() << "\nData was saved into the file";
+
+    // Serialization: Load the data from the file
+    if (person.loadFromFile(fileName)) qDebug() << "Data was loaded from the file";
+
+    qDebug() << "\nFirst Name:" << person.firstName;
+    qDebug() << "Last Name:"<< person.lastName;
+    qDebug() << "Alter:" << person.age;
+    qDebug() << "--------------";
 }
 

@@ -7,14 +7,14 @@
     <x>0</x>
     <y>0</y>
     <width>440</width>
-    <height>318</height>
+    <height>345</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>FrmMain</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="btn_open">
     <property name="geometry">
      <rect>
       <x>185</x>
@@ -32,7 +32,7 @@
      <string>Open File</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="btn_save">
     <property name="geometry">
      <rect>
       <x>90</x>
@@ -50,7 +50,7 @@
      <string>Save to File</string>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>90</x>
@@ -61,7 +61,7 @@
     </property>
     <layout class="QGridLayout" name="gridLayout">
      <item row="0" column="1" colspan="2">
-      <widget class="QLabel" name="label_4">
+      <widget class="QLabel" name="lbl_title">
        <property name="font">
         <font>
          <pointsize>18</pointsize>
@@ -73,7 +73,7 @@
       </widget>
      </item>
      <item row="3" column="0">
-      <widget class="QLabel" name="label_3">
+      <widget class="QLabel" name="lbl_age">
        <property name="font">
         <font>
          <pointsize>12</pointsize>
@@ -85,7 +85,7 @@
       </widget>
      </item>
      <item row="2" column="0">
-      <widget class="QLabel" name="label_2">
+      <widget class="QLabel" name="lbl_lastName">
        <property name="font">
         <font>
          <pointsize>12</pointsize>
@@ -97,7 +97,7 @@
       </widget>
      </item>
      <item row="1" column="0">
-      <widget class="QLabel" name="label">
+      <widget class="QLabel" name="lbl_firstName">
        <property name="font">
         <font>
          <pointsize>12</pointsize>
@@ -109,7 +109,7 @@
       </widget>
      </item>
      <item row="1" column="2">
-      <widget class="QLineEdit" name="lineEdit">
+      <widget class="QLineEdit" name="le_firstName">
        <property name="font">
         <font>
          <pointsize>12</pointsize>
@@ -118,7 +118,7 @@
       </widget>
      </item>
      <item row="2" column="2">
-      <widget class="QLineEdit" name="lineEdit_2">
+      <widget class="QLineEdit" name="le_lastName">
        <property name="font">
         <font>
          <pointsize>12</pointsize>
@@ -127,7 +127,7 @@
       </widget>
      </item>
      <item row="3" column="2">
-      <widget class="QSpinBox" name="spinBox">
+      <widget class="QSpinBox" name="sb_Age">
        <property name="font">
         <font>
          <pointsize>12</pointsize>
@@ -136,6 +136,24 @@
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QPushButton" name="btn_debug">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>260</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Debug Test</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

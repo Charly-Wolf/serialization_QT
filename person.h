@@ -4,20 +4,21 @@
 #include <QObject>
 #include <QDataStream>
 
-class Person : public QObject
+class Person
 {
-    Q_OBJECT
-public:
-    QString name;
-    int age;
+//    Q_OBJECT
+    public:
+        QString firstName;
+        QString lastName;
+        int age;
 
-    Person(const QString& name = "", int age = 0);
+        Person(const QString& firstName = "FirstName", const QString& lastName = "LastName", int age = 0);
 
-    bool saveToFile(const QString& fileName);
-    bool loadFromFile(const QString& fileName);
+        bool saveToFile(const QString& fileName);
+        bool loadFromFile(const QString& fileName);
 
-    void readFromStream(QDataStream& stream);
-    void writeToStream(QDataStream& stream);
+        void readFromStream(QDataStream& stream);
+        void writeToStream(QDataStream& stream);
 };
 
 #endif // PERSON_H
