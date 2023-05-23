@@ -2,6 +2,7 @@
 #define PERSON_H
 
 #include <QDataStream>
+#include <location.h>
 
 class Person
 {
@@ -9,8 +10,12 @@ class Person
         QString firstName;
         QString lastName;
         int age;
+        Location location;
 
-        Person(const QString& firstName = "FirstName", const QString& lastName = "LastName", int age = 0); // Constructor
+        Person(const QString& firstName = "FirstName",
+               const QString& lastName = "LastName",
+               int age = 0,
+               Location location = Location("Location"));
 
         bool saveToFile(const QString& fileName);
         bool loadFromFile(const QString& fileName);

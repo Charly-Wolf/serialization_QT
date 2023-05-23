@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "person.h"
+#include "location.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class FrmMain; }
@@ -18,12 +19,14 @@ public:
 
     // Helper Functions
     void getUserInput();
-    void clearLineEdits();
+    void clearInputFields();
     void outputData();
     void saveFileDialog();
     void openFileDialog();
     QString getFileName(const QString& filePath);
-    void setLineEdits(const QString& firstName, const QString& lastName, int age);
+    void setLineEdits(const QString& firstName, const QString& lastName, int age, Location location);
+    void fillLocationsList();
+    void sortLocations();
 
 // Button Funtions
 private slots:
@@ -34,5 +37,6 @@ private slots:
 private:
     Ui::FrmMain *ui;
     Person person;
+    QList<Location> locations;
 };
 #endif // FRMMAIN_H

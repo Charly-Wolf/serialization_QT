@@ -7,6 +7,8 @@ FrmMain::FrmMain(QWidget *parent)
     , ui(new Ui::FrmMain)
 {
     ui->setupUi(this);
+
+    fillLocationsList();
 }
 
 FrmMain::~FrmMain()
@@ -36,23 +38,26 @@ void FrmMain::on_btn_clear_clicked()
 // ----Helper Functions----
 void FrmMain::getUserInput()
 {
-    person.firstName = ui->le_firstName->text();
-    person.lastName = ui->le_lastName->text();
-    person.age = ui->sb_Age->text().toInt();
+    person.firstName = ui->le_firstName->text(); // TO DO: use setter - Use Regex to validate first name
+    person.lastName = ui->le_lastName->text(); // TO DO: use setter - Use Regex to validate last name
+    person.age = ui->sb_Age->text().toInt(); // TO DO: use setter - validate age, between 0 and 150
+    person.location.setLocationName(ui->cb_location->currentText());
 }
 
-void FrmMain::clearLineEdits()
+void FrmMain::clearInputFields()
 {
     ui->le_firstName->clear();
     ui->le_lastName->clear();
     ui->sb_Age->clear();
+    ui->cb_location->setCurrentIndex(0);
 }
 
 void FrmMain::outputData()
 {
-    ui->tb_output->append("First Name: " + person.firstName);
-    ui->tb_output->append("Last Name: " + person.lastName);
-    ui->tb_output->append("Age: " + QString::number(person.age));
+    ui->tb_output->append("First Name: " + person.firstName); // TO DO: use getter
+    ui->tb_output->append("Last Name: " + person.lastName); // TO DO: use getter
+    ui->tb_output->append("Age: " + QString::number(person.age)); // TO DO: use getter
+    ui->tb_output->append("Location: " + person.location.getLocationName());
     ui->tb_output->append("\n--------\n");
 }
 
@@ -69,7 +74,7 @@ void FrmMain::saveFileDialog()
             {
                 ui->tb_output->append("Data was saved into " + getFileName(filePath));
                 ui->tb_output->append("\n--------\n");
-                clearLineEdits();
+                clearInputFields();
             }
 
             else ui->tb_output->append("Problem saving data into the file\n");
@@ -91,7 +96,7 @@ void FrmMain::openFileDialog()
         if (person.loadFromFile(filePath))
         {
             ui->tb_output->append("Data was loaded from " + getFileName(filePath) + "\n");
-            setLineEdits(person.firstName, person.lastName, person.age);
+            setLineEdits(person.firstName, person.lastName, person.age, person.location); // TO DO: use getters
         }
         else ui->tb_output->append("Problem loading data from file\n");
     }
@@ -107,9 +112,36 @@ QString FrmMain::getFileName(const QString& filePath)
     return fileInfo.fileName();
 }
 
-void FrmMain::setLineEdits(const QString& firstName, const QString& lastName, int age)
+void FrmMain::setLineEdits(const QString& firstName, const QString& lastName, int age, Location location)
 {
-    ui->le_firstName->setText(firstName); // TO DO: User Regex to validate first name
-    ui->le_lastName->setText(lastName); // TO DO: User Regex to validate last name
-    ui->sb_Age->setValue(age); // TO DO: validate age, between 0 and 150
+    ui->le_firstName->setText(firstName);
+    ui->le_lastName->setText(lastName);
+    ui->sb_Age->setValue(age);
+    ui->cb_location->setCurrentText(location.getLocationName());
+
+}
+
+void FrmMain::fillLocationsList()
+{
+    locations.clear();
+    locations << Location("Frankfurt am Main") << Location("Darmstadt") << Location("Hofheim") << Location("Berlin");
+    sortLocations();
+    for(Location city : locations)
+    {
+        ui->cb_location->addItem(city.getLocationName());
+    }
+
+}
+
+void FrmMain::sortLocations()
+{
+    std::sort(
+                locations.begin(),
+                locations.end(),
+                // Lambda function
+                [](Location loc1, Location loc2)
+                {
+                    return loc1.getLocationName().toLower() < loc2.getLocationName().toLower();
+                }
+    );
 }
