@@ -1,6 +1,5 @@
 #include "frmmain.h"
 #include "ui_frmmain.h"
-#include <QDebug>
 
 FrmMain::FrmMain(QWidget *parent)
     : QMainWindow(parent)
@@ -17,7 +16,6 @@ FrmMain::~FrmMain()
 
 void FrmMain::on_btn_debug_clicked()
 {
-    // TEST -> The data will be displayed on the console
     QString fileName = "person.txt";
 
     person.firstName = ui->le_firstName->text();
@@ -25,14 +23,14 @@ void FrmMain::on_btn_debug_clicked()
     person.age = ui->sb_Age->text().toInt();
 
     // Serialization: Save the data into a file in the build folder of this project
-    if (person.saveToFile(fileName)) qDebug() << "\nData was saved into the file";
+    if (person.saveToFile(fileName)) ui->tb_output->append("Data was saved into the file");
 
     // Serialization: Load the data from the file
-    if (person.loadFromFile(fileName)) qDebug() << "Data was loaded from the file";
+    if (person.loadFromFile(fileName)) ui->tb_output->append("Data was loaded from the file\n");
 
-    qDebug() << "\nFirst Name:" << person.firstName;
-    qDebug() << "Last Name:"<< person.lastName;
-    qDebug() << "Alter:" << person.age;
-    qDebug() << "--------------";
+    ui->tb_output->append("First Name: " + person.firstName);
+    ui->tb_output->append("Last Name: " + person.lastName);
+    ui->tb_output->append("Age: " + QString::number(person.age));
+    ui->tb_output->append("--------\n");
 }
 
