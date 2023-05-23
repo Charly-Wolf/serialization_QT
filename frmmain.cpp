@@ -108,7 +108,7 @@ QString FrmMain::getFileName(const QString& filePath)
 
 void FrmMain::setLineEdits(const QString& firstName, const QString& lastName, int age)
 {
-    ui->le_firstName->setText(firstName);
-    ui->le_lastName->setText(lastName);
-    ui->sb_Age->setValue(age);
+    ui->le_firstName->setText(firstName); // TO DO: User Regex to validate first name
+    ui->le_lastName->setText(lastName); // TO DO: User Regex to validate last name
+    ui->sb_Age->setValue(age); // TO DO: validate age, between 0 and 150
 }
