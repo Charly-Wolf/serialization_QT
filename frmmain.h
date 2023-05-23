@@ -16,14 +16,16 @@ public:
     FrmMain(QWidget *parent = nullptr);
     ~FrmMain();
 
-    // Custom Functions
+    // Helper Functions
     void getUserInput();
     void clearLineEdits();
     void outputData();
     void saveFileDialog();
     void openFileDialog();
+    QString getFileName(const QString& filePath);
+    void setLineEdits(const QString& firstName, const QString& lastName, int age);
 
-    // Button Funtions
+// Button Funtions
 private slots:
     void on_btn_save_clicked();
     void on_btn_open_clicked();
@@ -32,6 +34,5 @@ private slots:
 private:
     Ui::FrmMain *ui;
     Person person;
-    QString fileName;
 };
 #endif // FRMMAIN_H

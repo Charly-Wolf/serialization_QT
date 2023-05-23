@@ -14,27 +14,26 @@ FrmMain::~FrmMain()
     delete ui;
 }
 
+// ----Button Functions----
 void FrmMain::on_btn_save_clicked()
 {
     getUserInput();
-    clearLineEdits();
     saveFileDialog();
 }
 
-
 void FrmMain::on_btn_open_clicked()
 {
-    // Serialization: Load the data from the file
     openFileDialog();
     outputData();
 }
-
 
 void FrmMain::on_btn_clear_clicked()
 {
     ui->tb_output->clear();
 }
 
+
+// ----Helper Functions----
 void FrmMain::getUserInput()
 {
     person.firstName = ui->le_firstName->text();
@@ -60,14 +59,18 @@ void FrmMain::outputData()
 void FrmMain::saveFileDialog()
 {
     // Prompt the user to select a file for saving (only txt files supported)
-    fileName = QFileDialog::getSaveFileName(nullptr, "Save File", "", "Text Files (*.txt)");
-
-    if (!fileName.isEmpty())
+    QString filePath = QFileDialog::getSaveFileName(nullptr, "Save File", "", "Text Files (*.txt)");
+    if (!filePath.isEmpty())
     {
             // Open the file for writing
-            QFile file(fileName);
+            QFile file(filePath);
             // Serialization: Save the data into a file
-            if (person.saveToFile(fileName)) ui->tb_output->append("Data was saved into the file\n");
+            if (person.saveToFile(filePath))
+            {
+                ui->tb_output->append("Data was saved into " + getFileName(filePath) + "\n");
+                clearLineEdits();
+            }
+
             else ui->tb_output->append("Problem saving data into the file\n");
     }
     else
@@ -79,17 +82,33 @@ void FrmMain::saveFileDialog()
 void FrmMain::openFileDialog()
 {
     // Open file dialog (only txt files supported)
-    fileName = QFileDialog::getOpenFileName(nullptr, "Open File", "", "Text Files (*.txt);");
-
+    QString filePath = QFileDialog::getOpenFileName(nullptr, "Open File", "", "Text Files (*.txt);");
     // Check if a file was selected
-    if (!fileName.isEmpty())
+    if (!filePath.isEmpty())
     {
-        QFileInfo fileInfo(fileName);
-        if (person.loadFromFile(fileName)) ui->tb_output->append("Data was loaded from file\n");
+        // Serialization: Load the data from the file
+        if (person.loadFromFile(filePath))
+        {
+            ui->tb_output->append("Data was loaded from " + getFileName(filePath) + "\n");
+            setLineEdits(person.firstName, person.lastName, person.age);
+        }
         else ui->tb_output->append("Problem loading data from file\n");
     }
     else
     {
         ui->tb_output->append("No file Selected");
     }
+}
+
+QString FrmMain::getFileName(const QString& filePath)
+{
+    QFileInfo fileInfo(filePath);
+    return fileInfo.fileName();
+}
+
+void FrmMain::setLineEdits(const QString& firstName, const QString& lastName, int age)
+{
+    ui->le_firstName->setText(firstName);
+    ui->le_lastName->setText(lastName);
+    ui->sb_Age->setValue(age);
 }

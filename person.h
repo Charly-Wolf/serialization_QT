@@ -1,7 +1,6 @@
 #ifndef PERSON_H
 #define PERSON_H
 
-#include <QObject>
 #include <QDataStream>
 
 class Person
