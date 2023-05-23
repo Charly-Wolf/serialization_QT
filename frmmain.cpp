@@ -40,6 +40,22 @@ FrmMain::FrmMain(QWidget *parent)
     // Anzeige der geänderten Daten
     qDebug() << "Name:" << person.name;
     qDebug() << "Alter:" << person.age;
+
+    //--------------------------------------------//
+
+    // Ändern der Daten
+    person.name = "Beispiel Person";
+    person.age = 25;
+
+    // Serialisierung: Speichern der geänderten Daten in einer Datei
+    if (person.saveToFile(fileName)) qDebug() << "Geänderte Daten wurden in Datei gespeichert";
+
+    // Serialisierung: Laden der geänderten daten aus der Datei
+    if (person.loadFromFile(fileName)) qDebug() << "Daten wurden aus Datei geladen";
+
+    // Anzeige der geänderten Daten
+    qDebug() << "Name:" << person.name;
+    qDebug() << "Alter:" << person.age;
 }
 
 FrmMain::~FrmMain()
