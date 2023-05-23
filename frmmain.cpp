@@ -19,8 +19,12 @@ void FrmMain::on_btn_save_clicked()
     person.lastName = ui->le_lastName->text();
     person.age = ui->sb_Age->text().toInt();
 
+    ui->le_firstName->clear();
+    ui->le_lastName->clear();
+    ui->sb_Age->clear();
+
     // Serialization: Save the data into a file in the build folder of this project
-    if (person.saveToFile(fileName)) ui->tb_output->append("Data was saved into the file");
+    if (person.saveToFile(fileName)) ui->tb_output->append("Data was saved into the file\n");
 }
 
 
@@ -32,6 +36,12 @@ void FrmMain::on_btn_open_clicked()
     ui->tb_output->append("First Name: " + person.firstName);
     ui->tb_output->append("Last Name: " + person.lastName);
     ui->tb_output->append("Age: " + QString::number(person.age));
-    ui->tb_output->append("--------\n");
+    ui->tb_output->append("\n--------\n");
+}
+
+
+void FrmMain::on_pushButton_clicked()
+{
+    ui->tb_output->clear();
 }
 
