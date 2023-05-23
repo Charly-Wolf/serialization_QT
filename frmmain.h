@@ -17,10 +17,13 @@ public:
     ~FrmMain();
 
 private slots:
-    void on_btn_debug_clicked();
+    void on_btn_save_clicked();
+
+    void on_btn_open_clicked();
 
 private:
     Ui::FrmMain *ui;
     Person person;
+    QString fileName = "person.txt";
 };
 #endif // FRMMAIN_H

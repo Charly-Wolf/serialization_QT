@@ -13,18 +13,19 @@ FrmMain::~FrmMain()
     delete ui;
 }
 
-
-void FrmMain::on_btn_debug_clicked()
+void FrmMain::on_btn_save_clicked()
 {
-    QString fileName = "person.txt";
-
     person.firstName = ui->le_firstName->text();
     person.lastName = ui->le_lastName->text();
     person.age = ui->sb_Age->text().toInt();
 
     // Serialization: Save the data into a file in the build folder of this project
     if (person.saveToFile(fileName)) ui->tb_output->append("Data was saved into the file");
+}
 
+
+void FrmMain::on_btn_open_clicked()
+{
     // Serialization: Load the data from the file
     if (person.loadFromFile(fileName)) ui->tb_output->append("Data was loaded from the file\n");
 
