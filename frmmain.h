@@ -22,7 +22,7 @@ public:
     void clearInputFields();
     void outputData();
     void saveFileDialog();
-    void openFileDialog();
+    bool openFileDialog();
     QString getFileName(const QString& filePath);
     void setLineEdits(const QString& firstName, const QString& lastName, int age, Location location);
     void fillLocationsList();

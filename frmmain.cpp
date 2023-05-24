@@ -25,8 +25,8 @@ void FrmMain::on_btn_save_clicked()
 
 void FrmMain::on_btn_open_clicked()
 {
-    openFileDialog();
-    outputData();
+    if (openFileDialog())
+        outputData();
 }
 
 void FrmMain::on_btn_clear_clicked()
@@ -84,7 +84,7 @@ void FrmMain::saveFileDialog()
     }
 }
 
-void FrmMain::openFileDialog()
+bool FrmMain::openFileDialog()
 {
     // Open file dialog (only txt files supported)
     QString filePath = QFileDialog::getOpenFileName(nullptr, "Open File", "", "Text Files (*.txt);");
@@ -96,6 +96,7 @@ void FrmMain::openFileDialog()
         {
             ui->tb_output->append("Data was loaded from " + getFileName(filePath) + "\n");
             setLineEdits(person.firstName, person.lastName, person.age, person.location); // TO DO: use getters
+            return true;
         }
         else ui->tb_output->append("Problem loading data from file\n");
     }
@@ -103,6 +104,7 @@ void FrmMain::openFileDialog()
     {
         ui->tb_output->append("No file Selected");
     }
+    return false;
 }
 
 QString FrmMain::getFileName(const QString& filePath)
