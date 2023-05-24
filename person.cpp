@@ -7,7 +7,7 @@ Person::Person(const QString& firstName, const QString& lastName, int age, Locat
 
 bool Person::saveToFile(const QString &fileName)
 {
-    QFile file(fileName); // File where we save and load the serialized data
+    QFile file(fileName); // File into which we save the serialized data
 
     if (file.open(QIODevice::WriteOnly)) // TO DO: Add comment to explain what QIODevice::WriteOnly does
     {
@@ -21,7 +21,7 @@ bool Person::saveToFile(const QString &fileName)
 
 bool Person::loadFromFile(const QString& fileName)
 {
-    QFile file(fileName); // File where we save and load the serialized data
+    QFile file(fileName); // File from which we load the serialized data
     if (file.open(QIODevice::ReadOnly)) // TO DO: Add comment to explain what QIODevice::ReadOnly does
     {
         QDataStream stream(&file);

@@ -34,7 +34,6 @@ void FrmMain::on_btn_clear_clicked()
     ui->tb_output->clear();
 }
 
-
 // ----Helper Functions----
 void FrmMain::getUserInput()
 {
@@ -65,6 +64,7 @@ void FrmMain::saveFileDialog()
 {
     // Prompt the user to select a file for saving (only txt files supported)
     QString filePath = QFileDialog::getSaveFileName(nullptr, "Save File", "", "Text Files (*.txt)");
+    // Check if a file was selected
     if (!filePath.isEmpty())
     {
             // Open the file for writing
@@ -72,8 +72,7 @@ void FrmMain::saveFileDialog()
             // Serialization: Save the data into a file
             if (person.saveToFile(filePath))
             {
-                ui->tb_output->append("Data was saved into " + getFileName(filePath));
-                ui->tb_output->append("\n--------\n");
+                ui->tb_output->append("Data was saved into " + getFileName(filePath) + "\n--------\n");
                 clearInputFields();
             }
 
@@ -130,7 +129,6 @@ void FrmMain::fillLocationsList()
     {
         ui->cb_location->addItem(city.getLocationName());
     }
-
 }
 
 void FrmMain::sortLocations()
