@@ -4,6 +4,7 @@
 #include <QDataStream>
 #include <location.h>
 
+//Commit-Test
 class Person
 {
     public: // TO DO: User Private attributes and public getters and setters!!
