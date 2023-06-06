@@ -39,8 +39,8 @@ class Person
         bool saveToFile(const QString& fileName);
         bool loadFromFile(const QString& fileName);
 
-        void readFromStream(QDataStream& stream);
-        void writeToStream(QDataStream& stream);
+        void deserialize(QDataStream& stream);
+        void serialize(QDataStream& stream);
 };
 
 #endif // PERSON_H

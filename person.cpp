@@ -61,7 +61,7 @@ bool Person::saveToFile(const QString &fileName)
     if (file.open(QIODevice::WriteOnly))
     {
         QDataStream stream(&file);
-        writeToStream(stream);
+        serialize(stream);
         file.close();
         return true;
     }
@@ -74,19 +74,19 @@ bool Person::loadFromFile(const QString& fileName)
     if (file.open(QIODevice::ReadOnly))
     {
         QDataStream stream(&file);
-        readFromStream(stream);
+        deserialize(stream);
         file.close();
         return true;
     }
     return false;
 }
 
-void Person::readFromStream(QDataStream& stream)
+void Person::deserialize(QDataStream& stream)
 {
     stream >> firstName >> lastName >> age >> location;
 }
 
-void Person::writeToStream(QDataStream& stream)
+void Person::serialize(QDataStream& stream)
 {
     stream << firstName << lastName << age << location;
 }
