@@ -7,15 +7,21 @@ class Location
 {
     private:
         QString name;
+        QString address;
 
     public:
-        Location(const QString& name = "Location");
+        Location(const QString& name = "City",
+                 const QString& address = "Street 111");
+
         QString getLocationName();
-        bool setLocationName(const QString& name);
+        QString getAddress();
+
+        void setLocationName(const QString& name);
+        void setAddress(const QString &address);
 
         // Operator overload
         friend QDataStream& operator<<(QDataStream& stream, const Location& location);
-        friend QDataStream& operator>>(QDataStream& stream, Location& location);
+        friend QDataStream& operator>>(QDataStream& stream, Location &location);
 };
 
 #endif // LOCATION_H

@@ -37,10 +37,12 @@ void FrmMain::on_btn_clear_clicked()
 // ----Helper Functions----
 void FrmMain::getUserInput()
 {
-    person.setFirstName(ui->le_firstName->text()); // TO DO: Use Regex to validate first name
-    person.setLastName(ui->le_lastName->text()); // TO DO:  Use Regex to validate last name
-    person.setAge(ui->sb_Age->text().toInt()); // TO DO: validate age, between 0 and 150
-    person.location.setLocationName(ui->cb_location->currentText());
+    person.setFirstName(ui->le_firstName->text()); // TO DO: Use Regex to validate
+    person.setLastName(ui->le_lastName->text()); // TO DO:  Use Regex to validate
+    person.setAge(ui->sb_Age->text().toInt()); // TO DO: validate between 0 and 150
+    location.setLocationName(ui->cb_location->currentText()); // TO DO: Use Regex to validate
+    location.setAddress(ui->le_address->text()); // TO DO: Use Regex to validate
+    person.setLocation(location);
 }
 
 void FrmMain::clearInputFields()
@@ -49,6 +51,7 @@ void FrmMain::clearInputFields()
     ui->le_lastName->clear();
     ui->sb_Age->clear();
     ui->cb_location->setCurrentIndex(0);
+    ui->le_address->clear();
 }
 
 void FrmMain::outputData()
@@ -56,7 +59,7 @@ void FrmMain::outputData()
     ui->tb_output->append("First Name: " + person.getFirstName()); // TO DO: use getter
     ui->tb_output->append("Last Name: " + person.getLastName()); // TO DO: use getter
     ui->tb_output->append("Age: " + QString::number(person.getAge())); // TO DO: use getter
-    ui->tb_output->append("Location: " + person.location.getLocationName());
+    ui->tb_output->append("Location: " + person.getLocation().getLocationName() + ", " + person.getLocation().getAddress());
     ui->tb_output->append("\n--------\n");
 }
 
@@ -119,7 +122,7 @@ void FrmMain::setLineEdits(const QString& firstName, const QString& lastName, in
     ui->le_lastName->setText(lastName);
     ui->sb_Age->setValue(age);
     ui->cb_location->setCurrentText(location.getLocationName());
-
+    ui->le_address->setText(location.getAddress());
 }
 
 void FrmMain::fillLocationsList()

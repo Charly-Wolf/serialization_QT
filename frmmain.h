@@ -37,6 +37,7 @@ private slots:
 private:
     Ui::FrmMain *ui;
     Person person;
+    Location location;
     QList<Location> locations;
 };
 #endif // FRMMAIN_H

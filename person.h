@@ -23,10 +23,10 @@ class Person
         int getAge();
         Location getLocation();
 
-        void setFirstName(QString firstName);
-        void setLastName(QString lastName);
-        void setAge(int age);
-        void setLocation(Location location);
+        void setFirstName(const QString &firstName);
+        void setLastName(const QString &lastName);
+        void setAge(const int &age);
+        void setLocation(const Location &location);
 
         bool saveToFile(const QString& fileName);
         bool loadFromFile(const QString& fileName);

@@ -17,8 +17,8 @@
    <widget class="QPushButton" name="btn_open">
     <property name="geometry">
      <rect>
-      <x>197</x>
-      <y>220</y>
+      <x>207</x>
+      <y>270</y>
       <width>142</width>
       <height>27</height>
      </rect>
@@ -35,8 +35,8 @@
    <widget class="QPushButton" name="btn_save">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>220</y>
+      <x>80</x>
+      <y>270</y>
       <width>121</width>
       <height>27</height>
      </rect>
@@ -88,117 +88,145 @@
      <rect>
       <x>90</x>
       <y>30</y>
-      <width>232</width>
-      <height>166</height>
+      <width>234</width>
+      <height>233</height>
      </rect>
     </property>
-    <layout class="QGridLayout" name="gridLayout_2">
+    <layout class="QGridLayout" name="gridLayout_3">
      <item row="0" column="0" colspan="2">
-      <layout class="QGridLayout" name="gridLayout">
-       <item row="0" column="1" colspan="2">
-        <widget class="QLabel" name="lbl_title">
-         <property name="font">
-          <font>
-           <pointsize>18</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Person</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0">
-        <widget class="QLabel" name="lbl_age">
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="1" column="1">
+        <widget class="QComboBox" name="cb_location">
          <property name="font">
           <font>
            <pointsize>12</pointsize>
           </font>
          </property>
-         <property name="text">
-          <string>Age</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="lbl_lastName">
-         <property name="font">
-          <font>
-           <pointsize>12</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Last name</string>
+         <property name="placeholderText">
+          <string/>
          </property>
         </widget>
        </item>
        <item row="1" column="0">
-        <widget class="QLabel" name="lbl_firstName">
+        <widget class="QLabel" name="lbl_location">
          <property name="font">
           <font>
            <pointsize>12</pointsize>
           </font>
          </property>
          <property name="text">
-          <string>First name</string>
+          <string>Location</string>
          </property>
         </widget>
        </item>
-       <item row="1" column="2">
-        <widget class="QLineEdit" name="le_firstName">
-         <property name="font">
-          <font>
-           <pointsize>12</pointsize>
-          </font>
-         </property>
-         <property name="placeholderText">
-          <string>enter a first name</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="2">
-        <widget class="QLineEdit" name="le_lastName">
-         <property name="font">
-          <font>
-           <pointsize>12</pointsize>
-          </font>
-         </property>
-         <property name="placeholderText">
-          <string>enter a last name</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="2">
-        <widget class="QSpinBox" name="sb_Age">
-         <property name="font">
-          <font>
-           <pointsize>12</pointsize>
-          </font>
-         </property>
-        </widget>
+       <item row="0" column="0" colspan="2">
+        <layout class="QGridLayout" name="gridLayout">
+         <item row="0" column="1" colspan="2">
+          <widget class="QLabel" name="lbl_title">
+           <property name="font">
+            <font>
+             <pointsize>18</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Person</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="lbl_age">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Age</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="lbl_lastName">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Last name</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="lbl_firstName">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>First name</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QLineEdit" name="le_firstName">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="placeholderText">
+            <string>enter a first name</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="2">
+          <widget class="QLineEdit" name="le_lastName">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="placeholderText">
+            <string>enter a last name</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="2">
+          <widget class="QSpinBox" name="sb_Age">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
       </layout>
      </item>
      <item row="1" column="0">
-      <widget class="QLabel" name="lbl_location">
+      <widget class="QLabel" name="lbl_address">
        <property name="font">
         <font>
          <pointsize>12</pointsize>
         </font>
        </property>
        <property name="text">
-        <string>Location</string>
+        <string>Address</string>
        </property>
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QComboBox" name="cb_location">
+      <widget class="QLineEdit" name="le_address">
        <property name="font">
         <font>
          <pointsize>12</pointsize>
         </font>
        </property>
        <property name="placeholderText">
-        <string/>
+        <string>enter an address</string>
        </property>
       </widget>
      </item>

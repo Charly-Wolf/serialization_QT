@@ -26,22 +26,22 @@ Location Person::getLocation()
     return location;
 }
 
-void Person::setFirstName(QString firstName)
+void Person::setFirstName(const QString &firstName)
 {
     this->firstName = firstName;
 }
 
-void Person::setLastName(QString lastName)
+void Person::setLastName(const QString &lastName)
 {
     this->lastName = lastName;
 }
 
-void Person::setAge(int age)
+void Person::setAge(const int &age)
 {
     this->age = age;
 }
 
-void Person::setLocation(Location location)
+void Person::setLocation(const Location &location)
 {
     this->location = location;
 }
