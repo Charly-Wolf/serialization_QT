@@ -5,6 +5,47 @@ Person::Person(const QString& firstName, const QString& lastName, int age, Locat
 {
 }
 
+
+QString Person::getFirstName()
+{
+    return firstName;
+}
+
+QString Person::getLastName()
+{
+    return lastName;
+}
+
+int Person::getAge()
+{
+    return age;
+}
+
+Location Person::getLocation()
+{
+    return location;
+}
+
+void Person::setFirstName(QString firstName)
+{
+    this->firstName = firstName;
+}
+
+void Person::setLastName(QString lastName)
+{
+    this->lastName = lastName;
+}
+
+void Person::setAge(int age)
+{
+    this->age = age;
+}
+
+void Person::setLocation(Location location)
+{
+    this->location = location;
+}
+
 bool Person::saveToFile(const QString &fileName)
 {
     QFile file(fileName); // File into which we save the serialized data

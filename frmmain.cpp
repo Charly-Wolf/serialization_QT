@@ -37,9 +37,9 @@ void FrmMain::on_btn_clear_clicked()
 // ----Helper Functions----
 void FrmMain::getUserInput()
 {
-    person.firstName = ui->le_firstName->text(); // TO DO: use setter - Use Regex to validate first name
-    person.lastName = ui->le_lastName->text(); // TO DO: use setter - Use Regex to validate last name
-    person.age = ui->sb_Age->text().toInt(); // TO DO: use setter - validate age, between 0 and 150
+    person.setFirstName(ui->le_firstName->text()); // TO DO: Use Regex to validate first name
+    person.setLastName(ui->le_lastName->text()); // TO DO:  Use Regex to validate last name
+    person.setAge(ui->sb_Age->text().toInt()); // TO DO: validate age, between 0 and 150
     person.location.setLocationName(ui->cb_location->currentText());
 }
 
@@ -53,9 +53,9 @@ void FrmMain::clearInputFields()
 
 void FrmMain::outputData()
 {
-    ui->tb_output->append("First Name: " + person.firstName); // TO DO: use getter
-    ui->tb_output->append("Last Name: " + person.lastName); // TO DO: use getter
-    ui->tb_output->append("Age: " + QString::number(person.age)); // TO DO: use getter
+    ui->tb_output->append("First Name: " + person.getFirstName()); // TO DO: use getter
+    ui->tb_output->append("Last Name: " + person.getLastName()); // TO DO: use getter
+    ui->tb_output->append("Age: " + QString::number(person.getAge())); // TO DO: use getter
     ui->tb_output->append("Location: " + person.location.getLocationName());
     ui->tb_output->append("\n--------\n");
 }
@@ -95,7 +95,7 @@ bool FrmMain::openFileDialog()
         if (person.loadFromFile(filePath))
         {
             ui->tb_output->append("Data was loaded from " + getFileName(filePath) + "\n");
-            setLineEdits(person.firstName, person.lastName, person.age, person.location); // TO DO: use getters
+            setLineEdits(person.getFirstName(), person.getLastName(), person.getAge(), person.getLocation()); // TO DO: use getters
             return true;
         }
         else ui->tb_output->append("Problem loading data from file\n");
