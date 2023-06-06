@@ -1,3 +1,11 @@
+/*
+ * Datei: location.cpp
+ * Inhalt: Methoden fuer die Klasse Location
+ * Autor: Carlos Paredes, Mahir Dzafic
+ * Datum: 2023-06-06
+ *
+*/
+
 #include "location.h"
 #include <QFile>
 

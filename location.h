@@ -1,3 +1,11 @@
+/*
+ * Datei: location.h
+ * Inhalt: Klasse fuer den Standort
+ * Autor: Carlos Paredes, Mahir Dzafic
+ * Datum: 2023-06-06
+ *
+*/
+
 #ifndef LOCATION_H
 #define LOCATION_H
 

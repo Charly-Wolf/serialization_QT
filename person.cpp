@@ -1,3 +1,11 @@
+/*
+ * Datei: person.cpp
+ * Inhalt: Methoden fuer die Klasse Person
+ * Autor: Carlos Paredes, Mahir Dzafic
+ * Datum: 2023-06-06
+ *
+*/
+
 #include "person.h"
 #include <QFile>
 
@@ -50,7 +58,7 @@ bool Person::saveToFile(const QString &fileName)
 {
     QFile file(fileName); // File into which we save the serialized data
 
-    if (file.open(QIODevice::WriteOnly)) // TO DO: Add comment to explain what QIODevice::WriteOnly does
+    if (file.open(QIODevice::WriteOnly))
     {
         QDataStream stream(&file);
         writeToStream(stream);
@@ -63,7 +71,7 @@ bool Person::saveToFile(const QString &fileName)
 bool Person::loadFromFile(const QString& fileName)
 {
     QFile file(fileName); // File from which we load the serialized data
-    if (file.open(QIODevice::ReadOnly)) // TO DO: Add comment to explain what QIODevice::ReadOnly does
+    if (file.open(QIODevice::ReadOnly))
     {
         QDataStream stream(&file);
         readFromStream(stream);

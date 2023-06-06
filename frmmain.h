@@ -1,3 +1,11 @@
+/*
+ * Datei: frmmain.h
+ * Inhalt: GUI-Klasse
+ * Autor: Carlos Paredes, Mahir Dzafic
+ * Datum: 2023-06-06
+ *
+*/
+
 #ifndef FRMMAIN_H
 #define FRMMAIN_H
 

@@ -1,3 +1,11 @@
+/*
+ * Datei: person.h
+ * Inhalt: Klasse fuer eine Person
+ * Autor: Carlos Paredes, Mahir Dzafic
+ * Datum: 2023-06-06
+ *
+*/
+
 #ifndef PERSON_H
 #define PERSON_H
 

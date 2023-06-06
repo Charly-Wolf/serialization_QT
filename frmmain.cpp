@@ -1,3 +1,11 @@
+/*
+ * Datei: frmmain.cpp
+ * Inhalt: Methoden der GUI-Klasse
+ * Autor: Carlos Paredes, Mahir Dzafic
+ * Datum: 2023-06-06
+ *
+*/
+
 #include "frmmain.h"
 #include "ui_frmmain.h"
 #include <QFileDialog>
@@ -56,9 +64,9 @@ void FrmMain::clearInputFields()
 
 void FrmMain::outputData()
 {
-    ui->tb_output->append("First Name: " + person.getFirstName()); // TO DO: use getter
-    ui->tb_output->append("Last Name: " + person.getLastName()); // TO DO: use getter
-    ui->tb_output->append("Age: " + QString::number(person.getAge())); // TO DO: use getter
+    ui->tb_output->append("First Name: " + person.getFirstName());
+    ui->tb_output->append("Last Name: " + person.getLastName());
+    ui->tb_output->append("Age: " + QString::number(person.getAge()));
     ui->tb_output->append("Location: " + person.getLocation().getLocationName() + ", " + person.getLocation().getAddress());
     ui->tb_output->append("\n--------\n");
 }
@@ -98,7 +106,7 @@ bool FrmMain::openFileDialog()
         if (person.loadFromFile(filePath))
         {
             ui->tb_output->append("Data was loaded from " + getFileName(filePath) + "\n");
-            setLineEdits(person.getFirstName(), person.getLastName(), person.getAge(), person.getLocation()); // TO DO: use getters
+            setLineEdits(person.getFirstName(), person.getLastName(), person.getAge(), person.getLocation());
             return true;
         }
         else ui->tb_output->append("Problem loading data from file\n");
